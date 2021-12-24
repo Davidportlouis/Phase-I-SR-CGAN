@@ -50,11 +50,11 @@ python test_enhance_single_unalign.py --gpus 1 --model sparnethd --name SPARNetH
 python test_enhance_single_unalign.py --gpus 1 --model sparnethd --name SPARNetHD_V4_Attn2D \
     --res_depth 10 --att_name spar --Gnorm 'in' \
     --pretrain_model_path ./pretrain_models/SPARNetHD_V4_Attn2D_net_H-epoch10.pth \
-    --test_img_path ./test_images/test_02.jpg --results_dir test_hzgg_results
+    --test_img_path ./test_images/test_02.jpeg --results_dir test_hzgg_results
 
 python test_enhance_single_unalign.py --gpus 1 --model sparnethd --name SPARNetHD_V4_Attn3D \
     --res_depth 10 --att_name spar3d --Gnorm 'in' \
     --pretrain_model_path ./pretrain_models/SPARNetHD_V4_Attn3D_net_H-epoch10.pth \
-    --test_img_path ./test_images/test_02.jpg --results_dir test_hzgg_results
+    --test_img_path ./test_images/test_02.jpeg --results_dir test_hzgg_results
 
 
