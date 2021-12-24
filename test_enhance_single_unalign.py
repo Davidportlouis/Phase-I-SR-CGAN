@@ -1,6 +1,3 @@
-'''
-This script enhance all faces in one image with PSFR-GAN and paste it back to the original place.
-'''
 import dlib
 import os
 import cv2
@@ -21,7 +18,7 @@ def detect_and_align_faces(img, face_detector, lmk_predictor, template_path, tem
         
     # Detect landmark points
     face_dets = face_detector(img, 1)
-    assert len(face_dets) > 0, 'No faces detected'
+    assert len(face_dets) > 0, 
 
     aligned_faces = []
     tform_params = []

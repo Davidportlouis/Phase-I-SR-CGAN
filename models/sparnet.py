@@ -5,14 +5,6 @@ import numpy as np
 
 
 class SPARNet(nn.Module):
-    """Deep residual network with spatial attention for face SR.
-    # Arguments:
-        - n_ch: base convolution channels
-        - down_steps: how many times to downsample in the encoder
-        - res_depth: depth of residual layers in the main body 
-        - up_res_depth: depth of residual layers in each upsample block
-
-    """
     def __init__(
         self,
         min_ch=32,

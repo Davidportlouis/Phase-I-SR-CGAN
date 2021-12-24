@@ -5,12 +5,6 @@ from torch.nn import functional as F
 import numpy as np
 
 class NormLayer(nn.Module):
-    """Normalization Layers.
-    ------------
-    # Arguments
-        - channels: input channels, for batch norm and instance norm.
-        - input_size: input shape without batch size, for layer norm.
-    """
     def __init__(self, channels, normalize_shape=None, norm_type='bn'):
         super(NormLayer, self).__init__()
         norm_type = norm_type.lower()
@@ -34,16 +28,6 @@ class NormLayer(nn.Module):
 
 
 class ReluLayer(nn.Module):
-    """Relu Layer.
-    ------------
-    # Arguments
-        - relu type: type of relu layer, candidates are
-            - ReLU
-            - LeakyReLU: default relu slope 0.2
-            - PRelu 
-            - SELU
-            - none: direct pass
-    """
     def __init__(self, channels, relu_type='relu'):
         super(ReluLayer, self).__init__()
         relu_type = relu_type.lower()
@@ -93,13 +77,6 @@ class ConvLayer(nn.Module):
 
 
 class ResidualBlock(nn.Module):
-    """
-    Residual block recommended in: http://torch.ch/blog/2016/02/04/resnets.html
-    ------------------
-    # Args
-        - hg_depth: depth of HourGlassBlock. 0: don't use attention map.
-        - use_pmask: whether use previous mask as HourGlassBlock input.
-    """
     def __init__(self, c_in, c_out, relu_type='prelu', norm_type='bn', scale='none', hg_depth=2, att_name='spar'):
         super(ResidualBlock, self).__init__()
         self.c_in      = c_in
@@ -149,10 +126,6 @@ class ResidualBlock(nn.Module):
         
 
 class HourGlassBlock(nn.Module):
-    """Simplified HourGlass block.
-    Reference: https://github.com/1adrianb/face-alignment 
-    --------------------------
-    """
     def __init__(self, depth, c_in, c_out, 
             c_mid=64,
             norm_type='bn',
